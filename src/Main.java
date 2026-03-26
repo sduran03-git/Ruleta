@@ -10,8 +10,7 @@ public class Ruleta {
     public static int[] numerosRojos =
             {1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35};
     public static int[] numerosNegros =
-            {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36};
-}
+            {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36};}
 /**
  * Método principal: inicia el programa llamando al menú.
  */
@@ -59,11 +58,11 @@ public class Ruleta {
      */
     public static void ejecutarOpcion(int opcion, Scanner in) {
         if (opcion == 1){
-            iniciarRonda(in); // Corregido: solo pasamos la variable 'in'
+            iniciarRonda(in);
         } else if (opcion == 2) {
             mostrarEstadisticas();
         } else if (opcion == 3) {
-            System.out.println("¡Gracias por visitar el Casino Black Cat! Saliendo..."); // El ciclo while se encargará de salir
+            System.out.println("¡Gracias por visitar el Casino Black Cat! Saliendo...");
         } else {
             System.out.println("Opción inválida. Por favor, intente de nuevo.");
         }
