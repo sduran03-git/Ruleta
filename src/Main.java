@@ -21,17 +21,13 @@ public class Ruleta {
      * Controla el flujo principal del programa mostrando un menú en consola.
      */
 
-    public static void mostrarOpciones() {
+    public static void menu() {
         System.out.println("""
                 Bienvenido al casino Black Cat, por favor selecciona una opcion:
                 (1) Iniciar Ronda
                 (2) Ver estadísticas
                 (3) Salir
                 """);
-    }
-
-    public static void menu() {
-        mostrarOpciones();
     }
     /**
      * Muestra en consola las opciones disponibles del menú.
