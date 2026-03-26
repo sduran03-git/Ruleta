@@ -8,11 +8,12 @@ public class Ruleta {
     public static int historialSize = 0;
     public static Random rng = new Random();
     public static int[] numerosRojos =
-            {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36};
+            {1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35};
+    public static int[] numerosNegros =
+            {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36};
 /**
  * Método principal: inicia el programa llamando al menú.
  */
-2
     public static void main(String[] args) {
         menu();
     }
@@ -46,7 +47,6 @@ public class Ruleta {
     /**
      * Permite al usuario seleccionar el tipo de apuesta (R/N/P/I).
      * @param in Scanner para entrada por consola.
-    3
      * @return el tipo de apuesta elegido.
      */
     public static char leerTipoApuesta(Scanner in) {
@@ -82,7 +82,6 @@ public class Ruleta {
  * @param apuesta monto apostado.
  * @param acierto si el jugador acertó o no.
  */
-4
     public static void registrarResultado(int numero, int apuesta, boolean acierto) {}
     /**
      * Muestra en consola el resultado de la ronda.
