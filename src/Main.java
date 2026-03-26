@@ -22,23 +22,33 @@ public class Ruleta {
      */
 
     public static void menu() {
+        Scanner in = new Scanner(System.in);
+        int opcionElegida;
+        do {
+            mostrarMenu();
+            opcionElegida = leerOpcion(in);
+            ejecutarOpcion(opcionElegida, in);
+        } while (opcionElegida != 3);
+    }
+    /**
+     * Muestra en consola las opciones disponibles del menú.
+     */
+    public static void mostrarMenu() {
         System.out.println("""
                 Bienvenido al casino Black Cat, por favor selecciona una opcion:
                 (1) Iniciar Ronda
                 (2) Ver estadísticas
                 (3) Salir
-                """);
-    }
-    /**
-     * Muestra en consola las opciones disponibles del menú.
-     */
-    public static void mostrarMenu() {}
-    /**
-     * Lee la opción elegida por el usuario desde teclado.
-     * @param in Scanner para entrada por consola.
-     * @return número de opción ingresado.
-     */
+                """);}
+
     public static int leerOpcion(Scanner in) {
+        int opcion = in.nextInt();
+        in.nextLine();
+
+        if (opcion >= 1 && opcion <= 3) {
+            return opcion;
+        }
+
         return 0;
     }
     /**
@@ -46,7 +56,17 @@ public class Ruleta {
      * @param opcion opción elegida por el usuario.
      * @param in Scanner para entrada por consola.
      */
-    public static void ejecutarOpcion(int opcion, Scanner in) {}
+    public static void ejecutarOpcion(int opcion, Scanner in) {
+        if (opcion == 1){
+            iniciarRonda(in); // Corregido: solo pasamos la variable 'in'
+        } else if (opcion == 2) {
+            mostrarEstadisticas();
+        } else if (opcion == 3) {
+            System.out.println("¡Gracias por visitar el Casino Black Cat! Saliendo..."); // El ciclo while se encargará de salir
+        } else {
+            System.out.println("Opción inválida. Por favor, intente de nuevo.");
+        }
+    }
     /**
      * Inicia una ronda de la ruleta: leer apuesta, girar, evaluar y mostrar resultado.
      * @param in Scanner para entrada por consola.
@@ -58,7 +78,7 @@ public class Ruleta {
      * @return el tipo de apuesta elegido.
      */
     public static char leerTipoApuesta(Scanner in) {
-        return ’ ’;
+        return 0;
     }
     /**
      * Simula el giro de la ruleta generando un número aleatorio de 0 a 36.
