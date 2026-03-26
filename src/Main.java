@@ -51,7 +51,7 @@ public class Ruleta {
 
         return 0;
     }
-     */
+
     public static void ejecutarOpcion(int opcion, Scanner in) {
         if (opcion == 1){
             iniciarRonda(in);
