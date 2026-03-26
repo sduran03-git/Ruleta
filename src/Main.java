@@ -51,10 +51,6 @@ public class Ruleta {
 
         return 0;
     }
-    /**
-     * Ejecuta la acción correspondiente a la opción del menú.
-     * @param opcion opción elegida por el usuario.
-     * @param in Scanner para entrada por consola.
      */
     public static void ejecutarOpcion(int opcion, Scanner in) {
         if (opcion == 1){
