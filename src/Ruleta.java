@@ -10,7 +10,7 @@ public class Ruleta {
     public static int[] numerosRojos =
             {1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35};
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         menu();
     }
 
@@ -80,8 +80,7 @@ public class Ruleta {
     }
 
     public static int girarRuleta() {
-        int numeroGanador = rng.nextInt(37);
-        return numeroGanador;
+        return rng.nextInt(37);
     }
 
     public static boolean evaluarResultado(int numero, char tipo) {
@@ -109,31 +108,46 @@ public class Ruleta {
         return false;
     }
 
-    /**
-     * Registra los resultados de la ronda en los arreglos de historial.
-     *
-     * @param numero  número obtenido en la ruleta.
-     * @param apuesta monto apostado.
-     * @param acierto si el jugador acertó o no.
-     */
     public static void registrarResultado(int numero, int apuesta, boolean acierto) {
+        if (historialSize < MAX_HISTORIAL) {
+            historialNumeros[historialSize] = numero;
+            historialApuestas[historialSize] = apuesta;
+            historialAciertos[historialSize] = acierto;
+
+            historialSize++;
+        } else {
+            System.out.println("El historial está lleno. No se registrará esta ronda.");
+        }
     }
 
-    /**
-     * Muestra en consola el resultado de la ronda.
-     *
-     * @param numero  número obtenido en la ruleta.
-     * @param tipo    tipo de apuesta realizada.
-     * @param monto   monto apostado.
-     * @param acierto si el jugador ganó o perdió.
-     */
-    public static void mostrarResultado(int numero, char tipo, int monto, boolean
-            acierto) {
+    public static void mostrarResultado(int numero, char tipo, int monto, boolean acierto) {
+        System.out.println("><><><RESULTADO DE LA RONDA><><><");
+        System.out.println("Tu apuesta fue: " + tipo + ". El giro de ruleta resulto: " + numero);
+
+        if (acierto) {
+            System.out.println("¡Has acertado! Ganas $" + monto);
+        } else {
+            System.out.println("Has fallado. Pierdes $" + monto);
+        }
+        System.out.println("><><><><><><><><><><><><><><><><><");
     }
 
-    /**
-     * Muestra estadísticas generales de todas las rondas jugadas.
-     */
     public static void mostrarEstadisticas() {
+        int apostado = 0, aciertos = 0, balance = 0;
+
+        for (int i = 0; i < historialSize; i++) {
+            apostado += historialApuestas[i];
+            if (historialAciertos[i]) {
+                aciertos++;
+                balance += historialApuestas[i];
+            } else {
+                balance -= historialApuestas[i];
+            }
+        }
+
+        double porcentaje = (historialSize > 0) ? (aciertos * 100.0) / historialSize : 0;
+        System.out.printf("><><>< ESTADÍSTICAS (Rondas: %d) ><><><\n", historialSize);
+        System.out.printf("Apostado: $%d | Aciertos: %d (%.1f%%) | Balance: $%d\n\n", apostado, aciertos, porcentaje, balance);
     }
 }
+
