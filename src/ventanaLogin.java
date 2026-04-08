@@ -37,31 +37,36 @@ public class ventanaLogin {
     }
 
     public void mostrarVentana() {
-// TODO: mostrar ventana
+        frame.setSize(300, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null); // Esto centra la ventana en la pantalla
+        frame.setVisible(true);
     }
-    /**
-     * Maneja el evento de login al presionar el botón.
-     * Debe validar credenciales y abrir la siguiente ventana o mostrar error.
-     */
+
+
     private void login() {
-// TODO: implementar lógica de login
+        String u = txtUsuario.getText();
+        String p = new String(txtClave.getPassword());
+        String nombre = validarCredenciales(u, p);
+
+        if (!nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(frame, "¡Acceso concedido! Bienvenido, " + nombre);
+            // Aquí a futuro llamarás a VentanaSaludo y cerrarás esta
+        } else {
+            JOptionPane.showMessageDialog(frame, "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
-    /**
-     * Valida las credenciales del usuario contra el arreglo hardcoded.
-     *
-     * @param u nombre de usuario ingresado
-     * @param p clave ingresada
-     * @return el nombre del usuario si es válido, o cadena vacía si no coincide
-     */
+
     private String validarCredenciales(String u, String p) {
-// TODO: recorrer arreglo y validar credenciales
+        for (Usuario usr : USUARIOS) {
+            if (usr.validarCredenciales(u, p)) {
+                return usr.getNombre();
+            }
+        }
         return "";
     }
-/**
- * Abre la ventana de registro para crear un nuevo usuario.
- * Debe cerrar la ventana actual e invocar a VentanaRegistro.
- */
- void abrirRegistro() {
-// TODO: abrir ventana de registro y cerrar login
+
+    public void abrirRegistro() {
+        frame.dispose();
     }
 }
