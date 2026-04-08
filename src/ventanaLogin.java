@@ -51,6 +51,9 @@ public class ventanaLogin {
 
         if (!nombre.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "¡Acceso concedido! Bienvenido, " + nombre);
+            frame.dispose();
+            ventanaSaludo saludo = new ventanaSaludo();
+            saludo.mostrarVentana();
         } else {
             JOptionPane.showMessageDialog(frame, "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
         }
