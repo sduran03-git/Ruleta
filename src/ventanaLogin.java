@@ -1,31 +1,41 @@
 import javax.swing.*;
-/**
- * Clase que representa la ventana de Login del Casino Black Cat.
- * Permite ingresar credenciales para acceder al sistema.
- */
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.GridLayout;
+
 public class ventanaLogin {
-    // --- Lista dinámica de usuarios ---
     public static final List<Usuario> USUARIOS = new ArrayList<>();
-    // --- UI ---
-    private final JFrame frame = new JFrame("Login - Casino Black Cat");
+
+    private final JFrame frame = new JFrame("Login Casino Black Cat");
     private final JLabel lblUsuario = new JLabel("Usuario:");
     private final JTextField txtUsuario = new JTextField();
     private final JLabel lblClave = new JLabel("Clave:");
     private final JPasswordField txtClave = new JPasswordField();
     private final JButton btnIngresar = new JButton("Ingresar");
-    /**
-     * Constructor que inicializa la ventana de login.
-     * Configura el tamaño, los componentes y los eventos.
-     */
-    public VentanaLogin() {
-// TODO: inicializar usuarios hardcodeados
-// TODO: inicializar y configurar la ventana
+
+    public ventanaLogin() {
+        inicializarUsuarios();
+        configurarVentana();
+        btnIngresar.addActionListener(e -> login());
     }
-3
-    /**
-     * Muestra la ventana en pantalla.
-     * Debe centrarla y hacerla visible.
-     */
+
+    private void inicializarUsuarios() {
+        if (USUARIOS.isEmpty()) {
+            USUARIOS.add(new Usuario("donnie", "1234", "Don Donnie"));
+            USUARIOS.add(new Usuario("jugador1", "abcd", "Albert"));
+        }
+    }
+
+    private void configurarVentana() {
+        frame.setLayout(new GridLayout(3, 2, 10, 10));
+        frame.add(lblUsuario);
+        frame.add(txtUsuario);
+        frame.add(lblClave);
+        frame.add(txtClave);
+        frame.add(new JLabel(""));
+        frame.add(btnIngresar);
+    }
+
     public void mostrarVentana() {
 // TODO: mostrar ventana
     }
@@ -51,7 +61,7 @@ public class ventanaLogin {
  * Abre la ventana de registro para crear un nuevo usuario.
  * Debe cerrar la ventana actual e invocar a VentanaRegistro.
  */
-| void abrirRegistro() {
+ void abrirRegistro() {
 // TODO: abrir ventana de registro y cerrar login
     }
 }
