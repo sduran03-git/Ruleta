@@ -64,8 +64,4 @@ public class ventanaLogin {
         }
         return "";
     }
-
-    public void abrirRegistro() {
-        frame.dispose();
-    }
 }
