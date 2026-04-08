@@ -7,7 +7,6 @@ public class Usuario {
         this.password = password;
         this.nombre = nombre;
     }
-    // Verifica si las credenciales coinciden
     public boolean validarCredenciales(String u, String p) {
         return this.username.equals(u) && this.password.equals(p);
     }
