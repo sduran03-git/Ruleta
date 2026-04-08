@@ -39,7 +39,7 @@ public class ventanaLogin {
     public void mostrarVentana() {
         frame.setSize(300, 150);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null); // Esto centra la ventana en la pantalla
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -51,7 +51,6 @@ public class ventanaLogin {
 
         if (!nombre.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "¡Acceso concedido! Bienvenido, " + nombre);
-            // Aquí a futuro llamarás a VentanaSaludo y cerrarás esta
         } else {
             JOptionPane.showMessageDialog(frame, "Credenciales incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
         }
