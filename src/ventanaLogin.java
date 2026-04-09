@@ -4,7 +4,7 @@ import java.util.List;
 import java.awt.GridLayout;
 
 public class ventanaLogin {
-    public static final List<Usuario> USUARIOS = new ArrayList<>();
+    public static final List<usuario> USUARIOS = new ArrayList<>();
 
     private final JFrame frame = new JFrame("Login Casino Black Cat");
     private final JLabel lblUsuario = new JLabel("Usuario:");
@@ -21,8 +21,8 @@ public class ventanaLogin {
 
     private void inicializarUsuarios() {
         if (USUARIOS.isEmpty()) {
-            USUARIOS.add(new Usuario("donnie", "1234", "Don Donnie"));
-            USUARIOS.add(new Usuario("jugador1", "abcd", "Albert"));
+            USUARIOS.add(new usuario("donnie", "1234", "Don Donnie"));
+            USUARIOS.add(new usuario("jugador1", "abcd", "Albert"));
         }
     }
 
@@ -60,7 +60,7 @@ public class ventanaLogin {
     }
 
     private String validarCredenciales(String u, String p) {
-        for (Usuario usr : USUARIOS) {
+        for (usuario usr : USUARIOS) {
             if (usr.validarCredenciales(u, p)) {
                 return usr.getNombre();
             }
